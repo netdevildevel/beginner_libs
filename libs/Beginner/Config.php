@@ -19,5 +19,16 @@ class Beginner_Config
     public function __construct($data = array())
     {
         $this->_data = $data;
+
+        $this->refreshTree();
+    }
+
+    protected function refreshTree()
+    {
+        foreach ($this->_data as $name => $value) {
+            if (is_array($value)) {
+                $this->_data[$name] = new self($value);
+            }
+        }
     }
 } 
