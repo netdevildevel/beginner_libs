@@ -12,10 +12,19 @@ class Beginner_Config
     /**
      * Data
      *
+     * Are here stores configuration data. 
+     * 
      * @var array
      */
     protected $_data;
 
+	/**
+	 * Create Config
+	 * 
+	 * This method create an instance of the class.
+	 * 
+	 * @param array $data array configuration data
+	 */
     public function __construct($data = array())
     {
         $this->_data = $data;
@@ -23,6 +32,11 @@ class Beginner_Config
         $this->refreshTree();
     }
 
+	/**
+	 * Convert To Array
+	 * 
+	 * @return array
+	 */
     public function toArray()
     {
         $array = array();
