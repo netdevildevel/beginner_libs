@@ -23,6 +23,21 @@ class Beginner_Config
         $this->refreshTree();
     }
 
+    public function toArray()
+    {
+        $array = array();
+
+        foreach ($this->_data as $name => $value) {
+            $array[$name] = $value;
+
+            if ($value instanceof self) {
+                $array[$name] = $value->toArray();
+            }
+        }
+
+        return $array;
+    }
+
     protected function refreshTree()
     {
         foreach ($this->_data as $name => $value) {
